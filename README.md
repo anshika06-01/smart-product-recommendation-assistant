@@ -13,9 +13,9 @@ An AI-powered product recommendation system that helps users discover suitable p
 
 | Name | Role |
 |------|------|
-| Arshpreet | Data Engineer |
-| Aditi | RAG & Backend Engineer |
-| Gurleen | Agentic Logic & Filtering Engineer |
+| Arshpreet Kaur | Data Engineer |
+| Aditi Pandey | RAG & Backend Engineer |
+| Gurleen Kaur | Agentic Logic & Filtering Engineer |
 | Gauri | Frontend & UI/UX Developer |
 | Anshika Priya | System Integration & QA Lead |
 
