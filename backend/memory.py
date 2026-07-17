@@ -1,5 +1,4 @@
 # backend/memory.py
-"""Conversational memory management for multi-turn shopping queries."""
 from typing import Dict, List, Optional
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
@@ -32,8 +31,6 @@ class InMemoryChatMessageHistory(BaseChatMessageHistory, BaseModel):
 
 # Global store: session_id -> chat history
 _session_store: Dict[str, InMemoryChatMessageHistory] = {}
-
-
 def get_session_history(session_id: str, max_messages: int = 10) -> InMemoryChatMessageHistory:
     """
     Retrieve or create chat history for a given session.
