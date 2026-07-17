@@ -1,2 +1,2 @@
 
-"""Backend package for ShopWise RAG pipeline."""
+"""Backend work."""
