@@ -55,7 +55,7 @@ MOCK_PRODUCTS = [
 
 
 class MockVectorStore:
-    """Mock vector store for Day 2 testing."""
+    """Mock vector store for testing."""
     
     def __init__(self, products: List[Dict]):
         self.products = products
@@ -127,7 +127,6 @@ class MockFilterWrapper:
 
 # LLM INITIALIZATION
 
-
 def initialize_llm() -> ChatGoogleGenerativeAI:
     """
     Initialize the Google Gemini LLM via LangChain.
@@ -143,7 +142,6 @@ def initialize_llm() -> ChatGoogleGenerativeAI:
     )
 
 # MASTER RESPONSE FUNCTION 
-
 
 def generate_assistant_response(
     user_query: str,
@@ -164,10 +162,10 @@ def generate_assistant_response(
     Returns:
         Dictionary with 'answer', 'sources', 'session_id', 'follow_up_suggestions'
     """
-    # Step 1: Initialize LLM
+    # Initialize LLM
     llm = initialize_llm()
     
-    # Step 2: Get or create session history
+    # Get or create session history
     session_history = get_session_history(session_id, max_messages=MAX_HISTORY_MESSAGES)
     
     # If frontend provides history, sync it
@@ -179,7 +177,7 @@ def generate_assistant_response(
             elif msg.get("role") == "assistant":
                 session_history.add_messages([AIMessage(content=msg["content"])])
     
-    # Step 3: Retrieve context (MOCK for Day 2)
+    # Retrieve context 
     mock_db = MockVectorStore(MOCK_PRODUCTS)
     smart_retriever = MockFilterWrapper(mock_db, llm)
     retrieved_docs = smart_retriever.invoke(user_query)
@@ -193,14 +191,14 @@ def generate_assistant_response(
         for i, doc in enumerate(retrieved_docs)
     ])
     
-    # Step 4: Build prompt with history
+    # Build prompt with history
     prompt = get_chat_prompt()
     history_messages = format_history_for_prompt(session_id)
     
-    # Step 5: Create RAG chain
+    # Create RAG chain
     
     
-    # For mock mode, we manually construct the response since we don't have real retriever
+  
     from langchain_core.runnables import RunnablePassthrough
     
     # Manual invocation 
@@ -256,13 +254,13 @@ def generate_assistant_response(
      
 
     
-    # Step 6: Update session history
+    # Update session history
     session_history.add_messages([
         HumanMessage(content=user_query),
         AIMessage(content=answer_text)
     ])
     
-    # Step 7: Build structured sources
+    # Build structured sources
     sources = [
         ProductSource(
             name=doc.metadata.get("name", "Unknown"),
@@ -275,10 +273,10 @@ def generate_assistant_response(
         for doc in retrieved_docs
     ]
     
-    # Step 8: Generate follow-up suggestions
+    # Generate follow-up suggestions
     follow_ups = _generate_follow_up_suggestions(user_query, answer_text, sources)
     
-    # Step 9: Return structured payload
+    # Return structured payload
     result = AssistantResponse(
         answer=answer_text,
         sources=sources,
@@ -317,7 +315,6 @@ def _generate_follow_up_suggestions(query: str, answer: str, sources: List[Produ
     return suggestions[:3]
 
 # UTILITY FUNCTIONS
-
 
 def get_session_summary(session_id: str) -> Dict[str, Any]:
     """
