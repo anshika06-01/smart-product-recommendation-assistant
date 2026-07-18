@@ -1,7 +1,11 @@
-# Secrets and local configuration
-.env
-.env.*
-!.env.example
+# .env
+GOOGLE_API_KEY=AQ.Ab8RN6IQSAhqEc8AWBMoyY-YojAWEty6Kma-R6r-ITKiMXX-yQ
+PRODUCT_CSV_PATH=C:/Users/Aditi Pandey/Downloads/ecommerce_products_killer.csv
+LLM_MODEL=gemini-3.5-flash
+LLM_TEMPERATURE=0.3
+VECTOR_DB_PATH=./chroma_db
+EMBEDDING_MODEL=models/embedding-001
+MAX_HISTORY_MESSAGES=10
 
 # Python environments and caches
 .venv/
