@@ -76,6 +76,10 @@ for message in st.session_state.messages:
         )
 
 # User input
+
+st.caption(
+    "Ask natural language questions to discover products."
+)
 user_query = st.chat_input(
     "Describe what you're looking for..."
 )
@@ -199,6 +203,9 @@ st.sidebar.subheader("❤️ Wishlist")
 for item in st.session_state.wishlist:
     st.sidebar.write(item)
 
+if not st.session_state.wishlist:
+    st.sidebar.info("No items added yet")
+
 # ---------------------------------
 # METRICS
 # ---------------------------------
@@ -237,11 +244,6 @@ if len(df) == 0:
 # ---------------------------------
 # TABS
 # ---------------------------------
-st.subheader("🤖 AI Recommendation Center")
-
-st.success(
-    "Ask natural language queries and receive personalized product recommendations."
-)
 
 tab1, tab2, tab3 = st.tabs(
     [
@@ -418,3 +420,10 @@ with tab3:
                 st.write(
                     f"📂 {product['category']}"
                 )
+
+                
+st.divider()
+
+st.caption(
+    "ShopSense AI | AI-Powered Product Recommendation Assistant"
+)

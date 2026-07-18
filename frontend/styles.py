@@ -1,30 +1,51 @@
 custom_css = """
 <style>
 
-/* Main app background */
+/* Main Background */
 [data-testid="stAppViewContainer"] {
-    background-color: #121212 !important;
+    background: #0F172A;
 }
 
-/* Sidebar background */
+/* Sidebar */
 section[data-testid="stSidebar"] {
-    background-color: #1E1E1E !important;
+    background-color: #1E293B;
 }
 
-/* Top spacing */
+/* Main Content Padding */
 .block-container {
     padding-top: 1rem;
 }
 
-/* Metric cards */
+/* Metric Cards */
+
+
 [data-testid="metric-container"] {
-    border: 1px solid #444;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #121212;
+    background: #1E293B;
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid #334155;
 }
+
+/* Product Cards */
+div[data-testid="stVerticalBlock"] div:has(> div[data-testid="stVerticalBlock"]) {
+    border-radius: 12px;
+}
+
+/* Input Boxes */
 input {
     border-radius: 10px !important;
+}
+
+.stTextInput input {
+    border: 2px solid #3B82F6;
+    border-radius: 12px;
+}
+
+.card {
+    background: #1E293B;
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid #334155;
 }
 
 </style>
