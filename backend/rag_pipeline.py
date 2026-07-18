@@ -1,6 +1,6 @@
 
 # Create rag_pipeline.py
-rag_pipeline_content = """CSV-backed product retrieval and Gemini response generation ."""
+
 from __future__ import annotations
 
 import csv
