@@ -1,5 +1,5 @@
 # .env
-GOOGLE_API_KEY=AQ.Ab8RN6IQSAhqEc8AWBMoyY-YojAWEty6Kma-R6r-ITKiMXX-yQ
+GOOGLE_API_KEY=
 PRODUCT_CSV_PATH=C:/Users/Aditi Pandey/Downloads/ecommerce_products_killer.csv
 LLM_MODEL=gemini-3.5-flash
 LLM_TEMPERATURE=0.3
