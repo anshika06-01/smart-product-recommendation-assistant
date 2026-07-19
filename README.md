@@ -176,7 +176,62 @@ smart-product-recommendation-assistant/
 ```
 ---
 
-# 👥 Team Members & Responsibilities
+## ⚙️ Installation & Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd smart-product-recommendation-assistant
+```
+
+### 2. Create and Activate a Virtual Environment
+
+**Windows**
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+**macOS / Linux**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure Environment Variables
+
+Navigate to the `backend` folder and create a `.env` file.
+
+Add the following:
+
+```env
+GOOGLE_API_KEY=your_google_api_key
+```
+
+### 5. Start the Backend Server
+
+```bash
+uvicorn backend.main:app --reload
+```
+
+### 6. Start the Frontend
+
+Open a new terminal, activate the virtual environment again, and run:
+
+```bash
+streamlit run frontend/app.py
+```
+
+---
 
 | Team Member        | Role                               |
 | ------------------ | ---------------------------------- |
