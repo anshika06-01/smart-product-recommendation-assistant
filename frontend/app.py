@@ -1,4 +1,5 @@
 import streamlit as st
+import requests
 import pandas as pd
 import time
 from components import product_card
@@ -30,7 +31,7 @@ if "messages" not in st.session_state:
 # ---------------------------------
 
 df = pd.read_csv(
-    r"C:\Users\Dell\Downloads\ecommerce_products_killer.csv"
+    "data/ecommerce_products_killer.csv"
 )
 
 # ---------------------------------
@@ -93,21 +94,24 @@ if user_query:
         }
     )
 
-    with st.spinner(
-        "Searching products..."
-    ):
+    with st.spinner("Searching products..."):
+        try:
+            response = requests.post(
+                "http://127.0.0.1:8000/api/recommendations",
+                json={
+                    "query": user_query,
+                    "session_id": "default_session"
+                }
+            )
 
-        time.sleep(2)
+            if response.status_code == 200:
+                result = response.json()
+                ai_response = result["answer"]
+            else:
+                ai_response = f"Backend Error: {response.text}"
 
-        ai_response = f"""
-Based on your requirements:
-
-**{user_query}**
-
-I found some products that may match your needs.
-
-(Temporary response - backend integration pending)
-"""
+        except Exception as e:
+            ai_response = f"Could not connect to backend.\n\n{e}"
 
     st.session_state.messages.append(
         {
