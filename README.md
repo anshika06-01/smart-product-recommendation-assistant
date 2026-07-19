@@ -138,6 +138,7 @@ Gemini is responsible for:
 
 # 📁 Project Structure
 
+```text
 smart-product-recommendation-assistant/
 │
 ├── backend/
