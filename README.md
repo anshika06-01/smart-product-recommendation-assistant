@@ -241,6 +241,8 @@ streamlit run frontend/app.py
 
 ---
 
+# 👥 Team Members & Role
+
 | Team Member        | Role                               |
 | ------------------ | ---------------------------------- |
 | **Aditi Pandey**   | RAG & Backend Engineer             |
