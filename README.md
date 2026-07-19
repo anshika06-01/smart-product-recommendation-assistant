@@ -173,6 +173,7 @@ smart-product-recommendation-assistant/
 │
 └── README.md
 
+```
 ---
 
 # 👥 Team Members & Responsibilities
