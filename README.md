@@ -209,13 +209,21 @@ pip install -r requirements.txt
 
 ### 4. Configure Environment Variables
 
-Navigate to the `backend` folder and create a `.env` file.
+The project includes a sample environment file:
 
-Add the following:
+```
+backend/.env.example
+```
+
+Create a new file named `.env` inside the `backend` directory by copying the contents of `.env.example`.
+
+Then update the values with your own configuration:
 
 ```env
 GOOGLE_API_KEY=your_google_api_key
 ```
+
+> **Note:** The `.env` file contains sensitive information such as API keys and should **not** be committed to Git. It is already included in `.gitignore`.
 
 ### 5. Start the Backend Server
 
