@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from BACKEND.rag_pipeline import (
+from backend.rag_pipeline import (
     generate_assistant_response,
     get_session_summary,
     reset_conversation,
